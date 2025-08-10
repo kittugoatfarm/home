@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>बकरी पालन - Goat Farming Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    /* Basic reset and font */
+    body {
+      font-family: 'Mukta', Arial, sans-serif;
+      margin: 0;
+      background: #f5f9f8;
+      color: #183132;
+    }
+    /* Header */
+    header {
+      background: #239c5a;
+      color: #fff;
+      padding: 22px 36px 14px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      flex: 1 1 200px;
+      user-select: none;
+    }
+    nav {
+      flex: 1 1 400px;
+      text-align: right;
+    }
+    nav a {
+      margin-left: 16px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+      user-select: none;
+    }
+    nav a:hover {
+      color: #f1ffef;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;      /* Image below text */
+      justify-content: center;
+      align-items: center;
+      padding: 48px 15px 30px 15px;
+      background: linear-gradient(90deg, #eafaf1 60%, #bbffd6 100%);
+      min-height: 340px;
+      text-align: center;
+      gap: 30px;
+      user-select: none;
+    }
+    .hero-content {
+      max-width: 470px;
+      padding: 0 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .hero-title {
+      font-size: 2.12rem;
+      font-weight: bold;
+      color: #0d2e2c;
+      margin-bottom: 8px;
+    }
+    .hero-desc {
+      font-size: 1.15rem;
+      margin-bottom: 29px;
+      color: #0e6446;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    .cta-buttons button {
+      background: #1a914a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 13px 24px;
+      font-size: 1.08rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      box-shadow: 0 2px 12px #083a245e;
+      flex: 1 1 140px;
+      min-width: 140px;
+    }
+    .cta-buttons button:last-child {
+      background: #22b372;
+    }
+    .cta-buttons button:hover {
+      background: #014f22;
+    }
+    .hero-img {
+      max-width: 220px;
+      width: 100%;
+      text-align: center;
+    }
+    .hero-img img {
+      max-width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px #0e8f386f;
+      display: inline-block;
+      user-select: none;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 1.5rem;
+      color: #1a6541;
+      margin-bottom: 9px;
+      text-align: center;
+      user-select: none;
+    }
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: #1a914a;
+      border-radius: 4px;
+      margin: 13px auto 22px auto;
+    }
+
+    /* Why Section */
+    .why-section {
+      background: #fff;
+      padding: 44px 10px 33px 10px;
+    }
+    .why-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 23px;
+    }
+    .why-card {
+      background: #eafaf1;
+      border-radius: 11px;
+      box-shadow: 0 2px 7px #a9efbf44;
+      padding: 17px 12px;
+      max-width: 210px;
+      flex: 1 1 130px;
+      text-align: center;
+      min-width: 130px;
+      font-size: 1rem;
+      color: #127340;
+      user-select: none;
+      transition: transform 0.25s;
+    }
+    .why-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 18px #6dbe3f80;
+    }
+    .why-card span {
+      font-size: 1.7rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    /* Services Section */
+    .services-section {
+      background: #f3fffa;
+      padding: 43px 10px 28px 10px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 19px;
+      margin-top: 18px;
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .service-block {
+      background: #fff;
+      border-radius: 11px;
+      box-shadow: 0 3px 11px #19a56a17;
+      padding: 19px 12px;
+      text-align: center;
+      position: relative;
+      user-select: none;
+      transition: box-shadow 0.3s;
+    }
+    .service-block:hover {
+      box-shadow: 0 6px 22px #1a914a44;
+    }
+    .service-block span {
+      font-size: 2.1rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .service-block-title {
+      font-weight: bold;
+      color: #16865a;
+      margin-bottom: 5px;
+    }
+    .service-block-desc {
+      color: #18513e;
+      font-size: 0.98rem;
+    }
+
+    /* About Section */
+    .about-section {
+      background: #e4fae6;
+      padding: 33px 15px 20px 15px;
+      text-align: center;
+    }
+    .about-text {
+      font-size: 1.05rem;
+      color: #095238;
+      max-width: 600px;
+      margin: auto;
+      user-select: none;
+    }
+
+    /* Feedback Section */
+    .feedbacks-section {
+      background: #fff;
+      padding: 27px 15px 16px 15px;
+    }
+    .feedbacks-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-top: 13px;
+    }
+    .feedback-card {
+      background: #fafeef;
+      border-radius: 9px;
+      box-shadow: 0 2px 7px #cff0c629;
+      padding: 13px 14px;
+      max-width: 250px;
+      min-width: 120px;
+      font-size: 1rem;
+      color: #266d34;
+      user-select: none;
+      transition: transform 0.25s;
+    }
+    .feedback-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px #198c2550;
+    }
+    .feedback-person {
+      margin-top: 7px;
+      color: #197255;
+      font-weight: bold;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      background: #f3fffa;
+      padding: 31px 10px 15px 10px;
+    }
+    .faq-list {
+      max-width: 650px;
+      margin: auto;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      box-shadow: 0 1px 6px #66ad8552;
+      padding: 10px 16px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.2s;
+    }
+    .faq-item:hover {
+      background-color: #e1f3dd;
+    }
+    .faq-question {
+      font-size: 1.04rem;
+      font-weight: bold;
+      color: #187438;
+    }
+    .faq-answer {
+      display: none;
+      padding-top: 5px;
+      color: #29684e;
+      user-select: text;
+      font-size: 0.95rem;
+      line-height: 1.4em;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: #fff;
+      padding: 34px 15px 24px 15px;
+    }
+    .contact-block {
+      max-width: 380px;
+      margin: auto;
+      background: #f5fff5;
+      border-radius: 9px;
+      box-shadow: 0 2px 8px #b4e7c944;
+      padding: 23px 11px;
+    }
+    .contact-block label {
+      font-weight: bold;
+      color: #14753c;
+      user-select: none;
+    }
+    .contact-block input,
+    .contact-block textarea {
+      width: 100%;
+      border: 1.2px solid #c1e2bf;
+      border-radius: 3.5px;
+      margin-top: 5px;
+      margin-bottom: 11px;
+      padding: 7px;
+      font-size: 0.98rem;
+      font-family: inherit;
+    }
+    .contact-block button {
+      background: #1a914a;
+      color: #fff;
+      border: none;
+      padding: 11px 20px;
+      border-radius: 5px;
+      margin-top: 7px;
+      font-size: 1.01rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.3s;
+      width: 100%;
+    }
+    .contact-block button:hover {
+      background: #014f22;
+    }
+    .contact-block a.waFlink {
+      color: #25d366;
+      text-decoration: underline;
+      user-select: text;
+    }
+    .waLinkNotice {
+      margin-top: 10px;
+      color: #e56a09;
+      font-size: 0.98em;
+      display: none;
+      user-select: text;
+    }
+
+    /* Footer */
+    footer.footer {
+      background: #009955;
+      color: #fff;
+      text-align: center;
+      padding: 20px 5px;
+      margin-top: 0;
+      user-select: none;
+    }
+    .social-icons img {
+      height: 28px;
+      margin: 0 7px;
+      vertical-align: middle;
+      filter: grayscale(10%) brightness(94%);
+      cursor: pointer;
+      transition: filter 0.3s;
+    }
+    .social-icons img:hover {
+      filter: brightness(120%);
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .hero {
+        /* flex-direction: column; already column */
+        padding: 22px 10px 18px 10px;
+      }
+      .hero-content,
+      .hero-img {
+        max-width: 96vw;
+        padding: 0 6px;
+      }
+      .why-list,
+      .feedbacks-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav {
+        text-align: center;
+        flex-basis: 100%;
+        margin-top: 10px;
+      }
+    }
+    @media (max-width: 410px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 11px 8px;
+      }
+      nav a {
+        margin: 0 7px 0 0;
+      }
+      .logo {
+        font-size: 1.16rem;
+      }
+      .cta-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">🐐 बकरी पालन</div>
+    <nav>
+      <a href="#home">होम</a>
+      <a href="#why">क्यों?</a>
+      <a href="#services">सेवाएं</a>
+      <a href="#about">हमारे बारे में</a>
+      <a href="#contact">संपर्क</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-title">बकरी पालन में आपका स्वागत है!</div>
+      <div class="hero-desc">विश्वसनीय गाइड, बेहतरीन ट्रेनिंग, और पूरी मार्केटिंग सहायता<br>हर किसान के लिए, एक जगह पर।</div>
+      <div class="cta-buttons">
+        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">कॉल/संपर्क करें</button>
+        <button onclick="alert('ट्रायल/परामर्श के लिए जल्द उपलब्ध!');">मुफ़्त परामर्श लें</button>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1482062364825-616fd23b8fc1?auto=format&fit=crop&w=440&q=80" alt="Goat Farming Image" />
+    </div>
+  </section>
+
+  <!-- Why Section -->
+  <section class="why-section" id="why">
+    <div class="section-title">क्यों करें बकरी पालन?</div>
+    <div class="divider"></div>
+    <div class="why-list">
+      <div class="why-card">
+        <span>💰</span>कम लागत, अधिक मुनाफा
+      </div>
+      <div class="why-card">
+        <span>🌾</span>हर जगह अवसर
+      </div>
+      <div class="why-card">
+        <span>🚚</span>बिक्री-खरीदी आसान
+      </div>
+      <div class="why-card">
+        <span>🎯</span>सरकारी योजनाओं व ट्रेनिंग का लाभ
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section" id="services">
+    <div class="section-title">हमारी सेवाएं</div>
+    <div class="divider"></div>
+    <div class="services-grid">
+      <div class="service-block">
+        <span>📚</span>
+        <div class="service-block-title">बकरी पालन गाइड</div>
+        <div class="service-block-desc">
+          नस्ल, देखरेख, बीमारियाँ, खर्च, सब विस्तार से।
+        </div>
+      </div>
+      <div class="service-block">
+        <span>💼</span>
+        <div class="service-block-title">व्यवसाय योजना</div>
+        <div class="service-block-desc">
+          निवेशक अनुसार बिज़नेस प्लान और मार्गदर्शन।
+        </div>
+      </div>
+      <div class="service-block">
+        <span>🎓</span>
+        <div class="service-block-title">ट्रेनिंग (ऑफलाइन/ऑनलाइन)</div>
+        <div class="service-block-desc">
+          एक्सपर्ट्स द्वारा प्रशिक्षण और सलाह।
+        </div>
+      </div>
+      <div class="service-block">
+        <span>🏬</span>
+        <div class="service-block-title">मार्केटिंग/ सपोर्ट</div>
+        <div class="service-block-desc">
+          बिक्री, क्रय, दाम आदि में सहायता।
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="section-title">हमारे बारे में</div>
+    <div class="divider"></div>
+    <div class="about-text">
+      10+ वर्षों का अनुभव। हजारों किसानों को ट्रेनिंग व मार्गदर्शन।<br />
+      व्यवसायिक बकरी पालन में हर स्टेज पर आपकी सहायता— ट्रेंनिंग, पूंजी का प्लान, और मार्केट से जोड़ने में।
+    </div>
+  </section>
+
+  <!-- Feedback Section -->
+  <section class="feedbacks-section">
+    <div class="section-title">क्लाइंट फीडबैक</div>
+    <div class="divider"></div>
+    <div class="feedbacks-list">
+      <div class="feedback-card">
+        “आपकी गाइड और सपोर्ट से मेरी आय दोगुनी हुई!”<br />
+        <div class="feedback-person">— अनीता देवी, उत्तर प्रदेश</div>
+      </div>
+      <div class="feedback-card">
+        “ऑनलाइन ट्रेनिंग शानदार रही, पूरे परिवार को लाभ।”<br />
+        <div class="feedback-person">— जितेन्द्र सिंह, राजस्थान</div>
+      </div>
+      <div class="feedback-card">
+        “मार्केटिंग में आपका नेटवर्क बेमिसाल है।”<br />
+        <div class="feedback-person">— रवि कुमार, बिहार</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="section-title">अक्सर पूछे जाने वाले सवाल</div>
+    <div class="divider"></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">Q. बकरी पालन शुरू करने के लिए जरूरी बातें?</div>
+        <div class="faq-answer">
+          3-4 अच्छी नस्ल की बकरियाँ, उचित शेड, चारा, थोड़ी ट्रेनिंग और नियमित देखरेख जरूरी है।
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Q. कितनी लागत आती है?</div>
+        <div class="faq-answer">30-50 हजार से शुरू किया जा सकता है। लागत संख्या व स्थान पर निर्भर करेगी।</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Q. क्या सरकारी सहायता है?</div>
+        <div class="faq-answer">राज्य/केंद्र सरकार सब्सिडी, ट्रेनिंग आदि देती है।</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Q. कितना मुनाफा हो सकता है?</div>
+        <div class="faq-answer">
+          सही नस्ल, देखभाल और मार्केटिंग के साथ मुनाफा काफी अच्छा हो सकता है।
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section with WhatsApp Form -->
+  <section class="contact-section" id="contact">
+    <div class="section-title">संपर्क करें (WhatsApp)</div>
+    <div class="divider"></div>
+    <div class="contact-block">
+      <form id="waForm" autocomplete="off">
+        <label for="waName">नाम *</label>
+        <input type="text" id="waName" name="waName" required placeholder="अपना नाम लिखें" />
+        <label for="waPhone">मोबाइल *</label>
+        <input type="tel" id="waPhone" name="waPhone" required placeholder="मोबाइल नंबर" pattern="[0-9]{10,15}" />
+        <label for="waMsg">संदेश</label>
+        <textarea rows="3" id="waMsg" name="waMsg" placeholder="जानकारी/प्रश्न..."></textarea>
+        <button type="submit">WhatsApp से भेजें</button>
+      </form>
+
+      <a href="#" target="_blank" id="waHiddenLink" style="display:none">Open WhatsApp</a>
+      <div class="waLinkNotice" id="waNotice">
+        WhatsApp ऑटो-रिडायरेक्ट नहीं हुआ? <a href="https://wa.me/919876543210" target="_blank" class="waFlink">यहाँ क्लिक करें</a>
+      </div>
+
+      <p style="margin-top: 13px; color: #137241; font-size: 0.99em; user-select: text;">
+        📞 9876543210 <br />
+        ✉️ info@bakripalan.com <br />
+        या <a href="https://wa.me/919876543210" target="_blank" class="waFlink">सीधे WhatsApp चैट शुरू करें</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-icons" style="margin-bottom: 4px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="facebook" />
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="whatsapp" />
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733646.png" alt="youtube" />
+    </div>
+    <div>© 2025 बकरी पालन सर्विसेस. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // FAQ accordion toggle
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', function () {
+        const ans = this.querySelector('.faq-answer');
+        ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+
+    // WhatsApp Form submit handling with anchor link trick
+    (function () {
+      const form = document.getElementById('waForm');
+      const hiddenLink = document.getElementById('waHiddenLink');
+      const notice = document.getElementById('waNotice');
+      const whatsappNumber = '919876543210'; // !!! अपना WhatsApp नंबर यहां (country code सहित) डालें
+
+      notice.style.display = 'none';
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        notice.style.display = 'none';
+
+        const name = form.waName.value.trim();
+        const phone = form.waPhone.value.trim();
+        const msg = form.waMsg.value.trim();
+
+        if (!name || !phone) {
+          alert('कृपया नाम और मोबाइल दोनों भरें!');
+          return;
+        }
+
+        // URL encode message parts to handle special characters properly
+        function encode(str) {
+          return encodeURIComponent(str).replace(/%20/g, '+');
+        }
+
+        let fullMsg = `नाम: ${encode(name)}%0Aमोबाइल: ${encode(phone)}%0Aसंदेश: ${encode(msg || '—')}`;
+        let waLink = `https://wa.me/${whatsappNumber}?text=${fullMsg}`;
+
+        hiddenLink.href = waLink;
+        hiddenLink.click();
+
+        // If WhatsApp popup blocked, show fallback after 2.3 seconds
+        setTimeout(() => {
+          notice.style.display = 'block';
+        }, 2300);
+
+        form.reset();
+      });
+    })();
+  </script>
+</body>
+</html>
